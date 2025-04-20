@@ -3,7 +3,7 @@
 //                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
 //                                                        █   █  █  █   █  █  █   █  █  █   █
 //                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
+//                                                               █      ▄▄▄█▄▄▄    █   █
 //                                                               ▀      █  █  █     █▄█
 //                                                             ▀▀▀▀▀    █  █  █      ▀
 //                                                                      ▀  ▀  ▀
@@ -465,8 +465,8 @@
 
         layer_Base_Linux {
             bindings = <
-           &kp Q         &kp W         &kp E         &kp R                        &kp T                                                                    &kp Y               &kp U         &kp I         &kp O        &kp P
-           &hrm RGUI A   &hrm LALT S   &hrm LCTRL D  &hrm LSHFT F                 &kp G                                                                    &kp H               &hrm RSHFT J  &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMI
+           &kp Q         &hrm RALT W   &kp E         &kp R                        &kp T                                                                    &kp Y               &kp U         &kp I         &hrm RALT O  &kp P
+           &hrm RGUI A   &hrm LALT S   &hrm LCTRL D  &hrm LSHFT F                 &kp G                                                                    &kp H               &hrm RSHFT J  &hrm RCTRL K  &hrm LALT L  &hrm RGUI SEMI
   &escaps  &hrm LCTRL Z  &hrm LCTRL X  &hrm LCTRL C  &hrm LCTRL V                 &kp B                                                                    &kp N               &kp M         &comapos      &dotgrv      &kp FSLH        &kp RET
                                                      &lt LAYER_Number_ LA(SPACE)  &lt LAYER_Symbol_ SPACE  &mt LSHFT BSPC        &lt LAYER_Number_ DELETE  &lt LAYER_Nav_ TAB  &lt LAYER_Mouse_ K_APP
             >;
@@ -474,44 +474,44 @@
 
         layer_Mac {
             bindings = <
-          &trans       &trans       &trans       &trans       &trans                          &trans  &trans  &trans  &trans  &trans
-          &hrm LGUI A  &trans       &trans       &trans       &trans                          &trans  &trans  &trans  &trans  &trans
-  &trans  &hrm LGUI Z  &hrm LGUI X  &hrm LGUI C  &hrm LGUI V  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+          &trans       &kp W        &trans       &trans       &trans                          &trans  &trans  &trans  &kp O        &trans
+          &hrm LGUI A  &trans       &trans       &trans       &trans                          &trans  &trans  &trans  &hrm RALT L  &trans
+  &trans  &hrm LGUI Z  &hrm LGUI X  &hrm LGUI C  &hrm LGUI V  &trans                          &trans  &trans  &trans  &trans       &trans  &trans
                                                  &trans       &trans  &trans          &trans  &trans  &lt LAYER_Mouse_ GLOBE
             >;
         };
 
         layer_Number {
             bindings = <
-          &kp N1        &kp N2        &kp N3         &kp N4         &kp N5                         &kp KP_PLUS   &kp KP_N7         &kp KP_N8         &kp KP_N9        &kp KP_EQUAL
-          &hrm LGUI N6  &hrm LALT N7  &hrm LCTRL N8  &hrm LSHFT N9  &kp N0                         &kp KP_MINUS  &hrm RSHFT KP_N4  &hrm RCTRL KP_N5  &hrm RALT KP_N6  &hrm RGUI KP_MULTIPLY
-  &trans  &none         &none         &kp COLON      &kp COMMA      &kp DOT                        &kp KP_DOT    &kp KP_N1         &kp KP_N2         &kp KP_N3        &kp KP_SLASH           &trans
-                                                     &trans         &trans   &trans        &trans  &trans        &trans
+              &kp N1        &hrm RALT N2  &kp N3         &kp N4         &kp N5                         &kp KP_PLUS   &kp KP_N7         &kp KP_N8         &hrm RALT KP_N9  &kp KP_EQUAL
+              &hrm LGUI N6  &hrm LALT N7  &hrm LCTRL N8  &hrm LSHFT N9  &kp N0                         &kp KP_MINUS  &hrm RSHFT KP_N4  &hrm RCTRL KP_N5  &hrm LALT KP_N6  &hrm RGUI KP_MULTIPLY
+  &kp KP_NUM  &none         &none         &kp COLON      &kp COMMA      &kp DOT                        &kp KP_DOT    &kp KP_N1         &kp KP_N2         &kp KP_N3        &kp KP_SLASH           &trans
+                                                         &trans         &trans   &trans        &trans  &trans        &trans
             >;
         };
 
         layer_Nav {
             bindings = <
-              &trans  &kp LG(PG_DN)       &kp LC(UP)           &kp LG(PG_UP)         &trans                                       &kp HOME  &kp PG_DN        &kp PG_UP      &kp END          &trans
-              &trans  &hrm LALT LC(LEFT)  &hrm LCTRL LC(DOWN)  &hrm LSHFT LC(RIGHT)  &trans                                       &kp LEFT  &hrm RSHFT DOWN  &hrm RCTRL UP  &hrm RALT RIGHT  &trans
-  &mtl_linux  &trans  &trans              &trans               &trans                &trans                                       &trans    &trans           &trans         &trans           &trans  &trans
-                                                               &trans                &lt LAYER_Symbol_ ESC  &trans        &trans  &trans    &trans
+              &trans  &hrm RALT LG(PG_DN)  &kp LC(UP)           &kp LG(PG_UP)         &trans                                       &kp HOME  &kp PG_DN        &kp PG_UP      &hrm RALT END    &trans
+              &trans  &hrm LALT LC(LEFT)   &hrm LCTRL LC(DOWN)  &hrm LSHFT LC(RIGHT)  &trans                                       &kp LEFT  &hrm RSHFT DOWN  &hrm RCTRL UP  &hrm LALT RIGHT  &trans
+  &mtl_linux  &trans  &trans               &trans               &trans                &trans                                       &trans    &trans           &trans         &trans           &trans  &trans
+                                                                &trans                &lt LAYER_Symbol_ ESC  &trans        &trans  &trans    &trans
             >;
         };
 
         layer_Nav_Mac {
             bindings = <
-            &trans  &kp LC(LEFT)        &kp LA(UP)           &kp LC(RIGHT)         &trans                        &trans  &trans  &trans  &trans  &trans
-            &trans  &hrm LALT LA(LEFT)  &hrm LCTRL LA(DOWN)  &hrm LSHFT LA(RIGHT)  &trans                        &trans  &trans  &trans  &trans  &trans
-  &mtl_mac  &trans  &trans              &trans               &trans                &trans                        &trans  &trans  &trans  &trans  &trans  &trans
+            &trans  &kp LC(LEFT)        &kp LA(UP)           &kp LC(RIGHT)         &trans                        &trans  &trans  &trans  &kp END          &trans
+            &trans  &hrm LALT LA(LEFT)  &hrm LCTRL LA(DOWN)  &hrm LSHFT LA(RIGHT)  &trans                        &trans  &trans  &trans  &hrm RALT RIGHT  &trans
+  &mtl_mac  &trans  &trans              &trans               &trans                &trans                        &trans  &trans  &trans  &trans  &trans   &trans
                                                              &trans                &trans  &trans        &trans  &trans  &trans
             >;
         };
 
         layer_Symbol {
             bindings = <
-              &kp LS(N1)        &kp LS(N2)        &kp LS(N3)         &kp LS(N4)         &kp LS(N5)                           &kp LS(EQUAL)         &kp EQUAL        &kp MINUS           &kp LS(MINUS)        &func_arrow
-              &hrm LGUI LS(N6)  &hrm LALT LS(N7)  &hrm LCTRL LS(N8)  &hrm LSHFT LS(N9)  &kp LS(N0)                           &lbklt                &mrbkgt RSHFT 0  &hrm RCTRL LS(SQT)  &hrm RALT LS(GRAVE)  &hrm RGUI LS(SEMI)
+              &kp LS(N1)        &hrm RALT LS(N2)  &kp LS(N3)         &kp LS(N4)         &kp LS(N5)                           &kp LS(EQUAL)         &kp EQUAL        &kp MINUS           &hrm RALT LS(MINUS)  &func_arrow
+              &hrm LGUI LS(N6)  &hrm LALT LS(N7)  &hrm LCTRL LS(N8)  &hrm LSHFT LS(N9)  &kp LS(N0)                           &lbklt                &mrbkgt RSHFT 0  &hrm RCTRL LS(SQT)  &hrm LALT LS(GRAVE)  &hrm RGUI LS(SEMI)
   &mtl_linux  &kp BSLH          &kp LS(BSLH)      &kp RA(LS(N3))     &kp LS(LBKT)       &kp LS(RBKT)                         &kp LS(COMMA)         &kp LS(DOT)      &kp SQT             &kp GRAVE            &kp LS(FSLH)        &trans
                                                                      &trans             &trans        &trans        &trans   &lt LAYER_Nav_ ENTER  &trans
             >;
@@ -519,9 +519,9 @@
 
         layer_Symbol_Mac {
             bindings = <
-            &trans  &trans  &trans      &trans  &trans                        &trans  &trans  &trans  &trans  &trans
-            &trans  &trans  &trans      &trans  &trans                        &trans  &trans  &trans  &trans  &trans
-  &mtl_mac  &trans  &trans  &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
+            &trans  &kp LS(N2)  &trans      &trans  &trans                        &trans  &trans  &trans  &kp LS(MINUS)        &trans
+            &trans  &trans      &trans      &trans  &trans                        &trans  &trans  &trans  &hrm RALT LS(GRAVE)  &trans
+  &mtl_mac  &trans  &trans      &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans  &trans               &trans  &trans
                                         &trans  &trans  &trans        &trans  &trans  &trans
             >;
         };
