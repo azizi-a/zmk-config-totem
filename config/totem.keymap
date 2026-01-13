@@ -455,6 +455,16 @@
         , <&macro_tap &to LAYER_Mac_>
         ;
     };
+
+    // Activate bluetooth profile 2 and Mac layer
+    bto_2: blue_tooth_profile_2_and_mac_layer {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_tap &bt_2>
+        , <&macro_tap &to LAYER_Mac_>
+        ;
+    };
   };
 };
 
@@ -468,7 +478,7 @@
            &kp Q         &hrm RALT W   &kp E         &kp R                        &kp T                                                                    &kp Y               &kp U         &kp I         &hrm RALT O  &kp P
            &hrm RGUI A   &hrm LALT S   &hrm LCTRL D  &hrm LSHFT F                 &kp G                                                                    &kp H               &hrm RSHFT J  &hrm RCTRL K  &hrm LALT L  &hrm RGUI SEMI
   &escaps  &hrm LCTRL Z  &hrm LCTRL X  &hrm LCTRL C  &hrm LCTRL V                 &kp B                                                                    &kp N               &kp M         &comapos      &dotgrv      &kp FSLH        &kp RET
-                                                     &lt LAYER_Number_ LA(SPACE)  &mt LSHFT BSPC  &lt LAYER_Symbol_ SPACE        &lt LAYER_Nav_ TAB  &lt LAYER_Number_ DELETE  &lt LAYER_Mouse_ K_APP
+                                                     &lt LAYER_Number_ LA(SPACE)  &mt LSHFT BSPC  &lt LAYER_Symbol_ SPACE        &lt LAYER_Nav_ TAB  &lt LAYER_Number_ DELETE  &kp  K_APP
             >;
         };
 
@@ -477,7 +487,7 @@
           &trans       &kp W        &trans       &trans       &trans                          &trans  &trans  &trans  &kp O        &trans
           &hrm LGUI A  &trans       &trans       &trans       &trans                          &trans  &trans  &trans  &hrm RALT L  &trans
   &trans  &hrm LGUI Z  &hrm LGUI X  &hrm LGUI C  &hrm LGUI V  &trans                          &trans  &trans  &trans  &trans       &trans  &trans
-                                                 &trans       &trans  &trans          &trans  &trans  &lt LAYER_Mouse_ GLOBE
+                                                 &trans       &trans  &trans          &trans  &trans  &mt GLOBE K_APP
             >;
         };
 
@@ -501,8 +511,8 @@
 
         layer_Nav_Mac {
             bindings = <
-            &trans  &kp LC(LEFT)        &kp LA(UP)           &kp LC(RIGHT)         &trans                        &trans  &trans  &trans  &kp END          &trans
-            &trans  &hrm LALT LA(LEFT)  &hrm LCTRL LA(DOWN)  &hrm LSHFT LA(RIGHT)  &trans                        &trans  &trans  &trans  &hrm RALT RIGHT  &trans
+            &trans  &kp LC(LEFT)        &kp LC(UP)           &kp LC(RIGHT)         &trans                        &trans  &trans  &trans  &kp END          &trans
+            &trans  &hrm LALT LA(LEFT)  &hrm LCTRL LC(DOWN)  &hrm LSHFT LA(RIGHT)  &trans                        &trans  &trans  &trans  &hrm RALT RIGHT  &trans
   &mtl_mac  &trans  &trans              &trans               &trans                &trans                        &trans  &trans  &trans  &trans  &trans   &trans
                                                              &trans                &trans  &trans        &trans  &trans  &trans
             >;
@@ -603,7 +613,7 @@
           &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
   &trans  &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-                                  &bto_0  &bto_1  &bt_2        &trans  &trans  &trans
+                                  &bto_0  &bto_1  &bto_2        &trans  &trans  &trans
             >;
         };
     };
