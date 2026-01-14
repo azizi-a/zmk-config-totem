@@ -26,58 +26,12 @@
 #define LAYER_Symbol 5
 #define LAYER_Symbol_Mac 6
 #define LAYER_Fn 7
-#define LAYER_Mouse 8
-#define LAYER_Mac_ 9
-#define LAYER_Number_ 10
-#define LAYER_Nav_ 11
-#define LAYER_Symbol_ 12
-#define LAYER_Fn_ 13
-#define LAYER_Mouse_ 14
-#define LAYER_Magic 15
-
-// ===================== MOUSE-KEY <section begins> ======================
-// MOUSE_MOTION_DELAY defines how long to wait (milliseconds) before starting
-// to move the mouse pointer.
-#define MOUSE_MOTION_DELAY 0
-// MOUSE_MOTION_ACCELERATION_EXPONENT sets how the mouse pointer accelerates:
-// acceleration exponent 0: uniform speed
-// acceleration exponent 1: uniform acceleration
-// acceleration exponent 2: uniform jerk
-#define MOUSE_MOTION_ACCELERATION_EXPONENT 1
-// MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED defines how long to wait (milliseconds)
-// before the mouse pointer speed is suddenly boosted to the maximum value.
-#define MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED 600
-// MOUSE_SCROLL_DELAY defines how long to wait (milliseconds) before starting
-// to move the mouse pointer.
-#define MOUSE_SCROLL_DELAY 0
-// MOUSE_SCROLL_ACCELERATION_EXPONENT sets how the mouse pointer accelerates:
-// acceleration exponent 0: uniform speed
-// acceleration exponent 1: uniform acceleration
-// acceleration exponent 2: uniform jerk
-#define MOUSE_SCROLL_ACCELERATION_EXPONENT 1
-// MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED defines how long to wait (milliseconds)
-// before the mouse pointer speed is suddenly boosted to the maximum value.
-#define MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED 0
-// MOUSE_SCROLL_MAXIMUM_SPEED defines how quickly the mouse wheel can scroll.
-#define MOUSE_SCROLL_MAXIMUM_SPEED 10
-
-#undef ZMK_POINTING_DEFAULT_MOVE_VAL
-#define ZMK_POINTING_DEFAULT_MOVE_VAL MOUSE_MOTION_MAXIMUM_SPEED
-#undef ZMK_POINTING_DEFAULT_SCRL_VAL
-#define ZMK_POINTING_DEFAULT_SCRL_VAL MOUSE_SCROLL_MAXIMUM_SPEED
-
-&mmv {
-  delay-ms = <MOUSE_MOTION_DELAY>;
-  acceleration-exponent = <MOUSE_MOTION_ACCELERATION_EXPONENT>;
-  time-to-max-speed-ms = <MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED>;
-};
-
-&msc {
-  delay-ms = <MOUSE_SCROLL_DELAY>;
-  acceleration-exponent = <MOUSE_SCROLL_ACCELERATION_EXPONENT>;
-  time-to-max-speed-ms = <MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED>;
-};
-// ====================== MOUSE-KEY <section ends> =======================
+#define LAYER_Mac_ 8
+#define LAYER_Number_ 9
+#define LAYER_Nav_ 10
+#define LAYER_Symbol_ 11
+#define LAYER_Fn_ 12
+#define LAYER_Magic 13
 
 // KEY_REPEATING_TERM defines how much time you have left (milliseconds)
 // after tapping a key to hold it again in order to make it auto-repeat.
@@ -279,10 +233,6 @@
     function {
       if-layers = <LAYER_Fn_>;
       then-layer = <LAYER_Fn>;
-    };
-    mouse {
-      if-layers = <LAYER_Mouse_>;
-      then-layer = <LAYER_Mouse>;
     };
   };
   
@@ -561,15 +511,6 @@
             >;
         };
 
-        layer_Mouse {
-            bindings = <
-         &none           &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &none                                          &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &none
-         &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT                                &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
-  &none  &none           &none           &none           &none            &none                                          &none           &none           &none         &none            &none  &none
-                                                         &mkp MCLK        &mkp RCLK        &mkp LCLK             &none   &none           &none
-            >;
-        };
-
         layer_Mac_ {
             bindings = <
           &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
@@ -607,15 +548,6 @@
         };
 
         layer_Fn_ {
-            bindings = <
-          &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
-          &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans  &trans
-                                  &trans  &trans  &trans        &trans  &trans  &trans
-            >;
-        };
-
-        layer_Mouse_ {
             bindings = <
           &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
           &trans  &trans  &trans  &trans  &trans                        &trans  &trans  &trans  &trans  &trans
