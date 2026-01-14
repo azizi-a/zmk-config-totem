@@ -47,8 +47,6 @@
 // MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED defines how long to wait (milliseconds)
 // before the mouse pointer speed is suddenly boosted to the maximum value.
 #define MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED 600
-// MOUSE_MOTION_MAXIMUM_SPEED defines how quickly the mouse pointer can move.
-#define MOUSE_MOTION_MAXIMUM_SPEED 1600
 // MOUSE_SCROLL_DELAY defines how long to wait (milliseconds) before starting
 // to move the mouse pointer.
 #define MOUSE_SCROLL_DELAY 0
@@ -63,7 +61,9 @@
 // MOUSE_SCROLL_MAXIMUM_SPEED defines how quickly the mouse wheel can scroll.
 #define MOUSE_SCROLL_MAXIMUM_SPEED 10
 
+#undef ZMK_POINTING_DEFAULT_MOVE_VAL
 #define ZMK_POINTING_DEFAULT_MOVE_VAL MOUSE_MOTION_MAXIMUM_SPEED
+#undef ZMK_POINTING_DEFAULT_SCRL_VAL
 #define ZMK_POINTING_DEFAULT_SCRL_VAL MOUSE_SCROLL_MAXIMUM_SPEED
 
 &mmv {
@@ -339,19 +339,35 @@
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    // Comma, apostrophe when shifted
-    comapos: comma_apostrophe {
+    // Comma, apostrophe when shifted - Linux
+    comapos_lx: comma_apostrophe_linux {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp COMMA>, <&kp LS(N2)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    // Comma, apostrophe when shifted - MacOS
+    comapos_mac: comma_apostrophe_mac {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp COMMA>, <&kp APOS>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    // Dot, backtick when shifted
-    dotgrv: dot_grave {
+    // Dot, backtick when shifted - Linux
+    dotgrv_lx: dot_grave_linux {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
       bindings = <&kp DOT>, <&kp GRAVE>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    // Dot, backtick when shifted - MacOS
+    dotgrv_mac: dot_grave_mac {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&kp DOT>, <&kp NON_US_BSLH>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -477,16 +493,16 @@
             bindings = <
            &kp Q         &hrm RALT W   &kp E         &kp R                        &kp T                                                                    &kp Y               &kp U         &kp I         &hrm RALT O  &kp P
            &hrm RGUI A   &hrm LALT S   &hrm LCTRL D  &hrm LSHFT F                 &kp G                                                                    &kp H               &hrm RSHFT J  &hrm RCTRL K  &hrm LALT L  &hrm RGUI SEMI
-  &escaps  &hrm LCTRL Z  &hrm LCTRL X  &hrm LCTRL C  &hrm LCTRL V                 &kp B                                                                    &kp N               &kp M         &comapos      &dotgrv      &kp FSLH        &kp RET
-                                                     &lt LAYER_Number_ LA(SPACE)  &mt LSHFT BSPC  &lt LAYER_Symbol_ SPACE        &lt LAYER_Nav_ TAB  &lt LAYER_Number_ DELETE  &kp  K_APP
+  &escaps  &hrm LCTRL Z  &hrm LCTRL X  &hrm LCTRL C  &hrm LCTRL V                 &kp B                                                                    &kp N               &kp M         &comapos_lx      &dotgrv_lx      &kp FSLH        &kp RET
+                                                     &lt LAYER_Number_ LA(SPACE)  &mt LSHFT BSPC  &lt LAYER_Symbol_ SPACE        &lt LAYER_Nav_ TAB  &lt LAYER_Number_ DELETE  &kp K_APP
             >;
         };
 
         layer_Mac {
             bindings = <
-          &trans       &kp W        &trans       &trans       &trans                          &trans  &trans  &trans  &kp O        &trans
-          &hrm LGUI A  &trans       &trans       &trans       &trans                          &trans  &trans  &trans  &hrm RALT L  &trans
-  &trans  &hrm LGUI Z  &hrm LGUI X  &hrm LGUI C  &hrm LGUI V  &trans                          &trans  &trans  &trans  &trans       &trans  &trans
+          &trans       &kp W        &trans       &trans       &trans                          &trans  &trans  &trans        &kp O        &trans
+          &hrm LGUI A  &trans       &trans       &trans       &trans                          &trans  &trans  &trans        &hrm RALT L  &trans
+  &trans  &hrm LGUI Z  &hrm LGUI X  &hrm LGUI C  &hrm LGUI V  &trans                          &trans  &trans  &comapos_mac  &dotgrv_mac  &trans  &trans
                                                  &trans       &trans  &trans          &trans  &trans  &mt GLOBE K_APP
             >;
         };
@@ -520,19 +536,19 @@
 
         layer_Symbol {
             bindings = <
-              &kp LS(N1)        &hrm RALT LS(N2)  &kp LS(N3)         &kp LS(N4)         &kp LS(N5)                           &kp LS(EQUAL)         &kp EQUAL        &kp MINUS           &hrm RALT LS(MINUS)  &func_arrow
-              &hrm LGUI LS(N6)  &hrm LALT LS(N7)  &hrm LCTRL LS(N8)  &hrm LSHFT LS(N9)  &kp LS(N0)                           &lbklt                &mrbkgt RSHFT 0  &hrm RCTRL LS(SQT)  &hrm LALT LS(GRAVE)  &hrm RGUI LS(SEMI)
-  &mtl_linux  &kp BSLH          &kp LS(BSLH)      &kp RA(LS(N3))     &kp LS(LBKT)       &kp LS(RBKT)                         &kp LS(COMMA)         &kp LS(DOT)      &kp SQT             &kp GRAVE            &kp LS(FSLH)        &trans
-                                                                     &trans             &trans        &trans        &lt LAYER_Nav_ ENTER  &trans   &trans
+              &kp LS(N1)        &hrm RALT LS(SQT)    &kp BSLH           &kp LS(N4)         &kp LS(N5)                                    &kp LS(EQUAL)         &kp EQUAL        &kp MINUS          &hrm RALT LS(MINUS)  &func_arrow
+              &hrm LGUI LS(N6)  &hrm LALT LS(N7)     &hrm LCTRL LS(N8)  &hrm LSHFT LS(N9)  &kp LS(N0)                                    &lbklt                &mrbkgt RSHFT 0  &hrm RCTRL LS(N2)  &hrm LALT LS(BSLH)   &hrm RGUI LS(SEMI)
+  &mtl_linux  &kp NON_US_BSLH   &kp LS(NON_US_BSLH)  &kp LS(N3)         &kp LS(LBKT)       &kp LS(RBKT)                                  &kp LS(COMMA)         &kp LS(DOT)      &kp SQT            &kp GRAVE            &kp LS(FSLH)        &trans
+                                                                     &trans             &trans        &trans    &lt LAYER_Nav_ ENTER  &trans   &trans
             >;
         };
 
         layer_Symbol_Mac {
             bindings = <
-            &trans  &kp LS(N2)  &trans      &trans  &trans                        &trans  &trans  &trans  &kp LS(MINUS)        &trans
-            &trans  &trans      &trans      &trans  &trans                        &trans  &trans  &trans  &hrm RALT LS(GRAVE)  &trans
-  &mtl_mac  &trans  &trans      &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans  &trans               &trans  &trans
-                                        &trans  &trans  &trans        &trans  &trans  &trans
+            &trans    &kp LS(N2)    &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans              &kp LS(MINUS)              &trans
+            &trans    &trans        &trans      &trans  &trans                        &trans  &trans  &hrm RCTRL LS(SQT)  &hrm RALT LS(NON_US_BSLH)  &trans
+  &mtl_mac  &kp BSLH  &kp LS(BSLH)  &trans      &trans  &trans                        &trans  &trans  &trans              &kp LS(NON_US_BSLH)              &trans  &trans
+                                                &trans  &trans  &trans        &trans  &trans  &trans
             >;
         };
 
