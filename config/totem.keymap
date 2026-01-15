@@ -317,7 +317,7 @@
     dotgrv_mac: dot_grave_mac {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
-      bindings = <&kp DOT>, <&kp NON_US_BSLH>;
+      bindings = <&kp DOT>, <&kp GRAVE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
@@ -495,9 +495,9 @@
 
         layer_Symbol_Mac {
             bindings = <
-            &trans    &kp LS(N2)    &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans              &kp LS(MINUS)              &trans
-            &trans    &trans        &trans      &trans  &trans                        &trans  &trans  &hrm RCTRL LS(SQT)  &hrm RALT LS(NON_US_BSLH)  &trans
-  &mtl_mac  &kp BSLH  &kp LS(BSLH)  &trans      &trans  &trans                        &trans  &trans  &trans              &kp LS(NON_US_BSLH)              &trans  &trans
+            &trans    &kp LS(N2)    &kp LA(N3)  &trans  &trans                        &trans  &trans  &trans              &kp LS(MINUS)        &trans
+            &trans    &trans        &trans      &trans  &trans                        &trans  &trans  &hrm RCTRL LS(SQT)  &hrm RALT LS(GRAVE)  &trans
+  &mtl_mac  &kp BSLH  &kp LS(BSLH)  &trans      &trans  &trans                        &trans  &trans  &trans              &trans               &trans  &trans
                                                 &trans  &trans  &trans        &trans  &trans  &trans
             >;
         };
